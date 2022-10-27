@@ -1,0 +1,11 @@
+{
+    "modules": [
+        "login",
+        "splash_screen",
+        "navigator",
+        "home",
+        "cart",
+        "my_order",
+        "profile"
+    ]
+}
