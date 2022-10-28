@@ -37,25 +37,25 @@ class NavigatorView extends StatefulWidget {
           },
           items: const [
             BottomNavigationBarItem(
-              label: "Home",
+              label: "Shop",
               icon: Icon(
                 Icons.home,
               ),
             ),
             BottomNavigationBarItem(
-              label: "Order",
+              label: "Cart",
               icon: Icon(
-                Icons.list,
+                Icons.card_travel,
               ),
             ),
             BottomNavigationBarItem(
-              label: "Favorite",
+              label: "My Order",
               icon: Icon(
-                Icons.favorite,
+                Icons.shopping_bag,
               ),
             ),
             BottomNavigationBarItem(
-              label: "Me",
+              label: "Account",
               icon: Icon(
                 Icons.person,
               ),

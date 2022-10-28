@@ -1,3 +1,4 @@
+import 'package:fhe_template/services/item_services.dart';
 import 'package:flutter/material.dart';
 import '../controller/home_controller.dart';
 import '../widget/sub_list.dart';
@@ -75,51 +76,57 @@ class HomeView extends StatefulWidget {
               Container(
                 height: 150.0,
                 margin: const EdgeInsets.symmetric(horizontal: 20.0),
-                decoration: BoxDecoration(
-                  color: Colors.red[200],
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://i.pinimg.com/736x/59/fa/9a/59fa9aa7b305b8ce6bf25dd2269d742e.jpg",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               LayoutBuilder(
                 builder: (context, constraint) {
                   List menus = [
                     {
-                      "icon": Icons.abc,
-                      "label": "Home",
+                      "icon": "assets/icon/seafood.png",
+                      "label": "Seafood",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.tiktok,
-                      "label": "Tiktok",
+                      "icon": "assets/icon/fruit.png",
+                      "label": "Fruits",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.facebook,
-                      "label": "Facebook",
+                      "icon": "assets/icon/bread.png",
+                      "label": "Bakery",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.access_alarm,
-                      "label": "Task",
+                      "icon": "assets/icon/vegetable.png",
+                      "label": "Vegetable",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.developer_board,
-                      "label": "Developer",
+                      "icon": "assets/icon/chicken.png",
+                      "label": "Meats",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.web,
-                      "label": "Website",
+                      "icon": "assets/icon/frozen.png",
+                      "label": "Frozen",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.mobile_screen_share_rounded,
-                      "label": "Share",
+                      "icon": "assets/icon/mortar.png",
+                      "label": "Herbs",
                       "onTap": () {},
                     },
                     {
-                      "icon": Icons.event,
-                      "label": "Event",
+                      "icon": "assets/icon/products.png",
+                      "label": "Daily Food",
                       "onTap": () {},
                     },
                   ];
@@ -150,9 +157,11 @@ class HomeView extends StatefulWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(
+                                Image.asset(
                                   item["icon"],
-                                  color: Colors.blueGrey,
+                                  width: 48.0,
+                                  height: 48.0,
+                                  fit: BoxFit.fill,
                                 ),
                                 const SizedBox(
                                   height: 4.0,
@@ -163,7 +172,7 @@ class HomeView extends StatefulWidget {
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     color: Colors.blueGrey,
-                                    fontSize: 8.0,
+                                    fontSize: 12.0,
                                   ),
                                 ),
                               ],
@@ -176,13 +185,23 @@ class HomeView extends StatefulWidget {
                 },
               ),
               SubTitleList(navigatorPush: () {}, title: "Recomment for You"),
+              const SizedBox(
+                height: 20.0,
+              ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10.0),
                 height: 200.0,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: ItemServices.product.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
+                    var item = ItemServices.product[index];
+                    double discount = double.parse(item['price'].toString());
+                    double price = item['price'] as double;
+                    var discountValue = (discount / 100) * price;
+                    var finalPrice = price - discountValue;
+                    String data = finalPrice.toString().substring(1, 5);
+
                     return Container(
                       height: 200.0,
                       width: 150,
@@ -214,17 +233,17 @@ class HomeView extends StatefulWidget {
                                 children: [
                                   Container(
                                     height: 120.0,
-                                    decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.vertical(
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.vertical(
                                         top: Radius.circular(
                                           10.0,
                                         ),
                                       ),
                                       image: DecorationImage(
                                         image: NetworkImage(
-                                          "https://i.ibb.co/3pPYd14/freeban.jpg",
+                                          "${item['photo']}",
                                         ),
-                                        fit: BoxFit.cover,
+                                        fit: BoxFit.fitHeight,
                                       ),
                                     ),
                                   ),
@@ -232,17 +251,17 @@ class HomeView extends StatefulWidget {
                                     height: 5.0,
                                   ),
                                   Row(
-                                    children: const [
+                                    children: [
                                       Text(
-                                        "\$0.14",
-                                        style: TextStyle(
+                                        "\$${item['price']}",
+                                        style: const TextStyle(
                                           fontSize: 18.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       Text(
-                                        "\$0.22",
-                                        style: TextStyle(
+                                        "\$$data",
+                                        style: const TextStyle(
                                             fontSize: 17.0,
                                             decoration:
                                                 TextDecoration.lineThrough),
@@ -290,10 +309,10 @@ class HomeView extends StatefulWidget {
                                   ),
                                 ),
                               ),
-                              child: const Center(
+                              child: Center(
                                 child: Text(
-                                  "12%",
-                                  style: TextStyle(
+                                  "${item['discount']}%",
+                                  style: const TextStyle(
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
@@ -307,6 +326,9 @@ class HomeView extends StatefulWidget {
                     );
                   },
                 ),
+              ),
+              Wrap(
+                children: const [],
               ),
             ],
           ),
