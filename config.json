@@ -6,6 +6,7 @@
         "home",
         "cart",
         "my_order",
-        "profile"
+        "profile",
+        "detail"
     ]
 }
