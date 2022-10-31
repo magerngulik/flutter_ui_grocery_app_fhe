@@ -1,6 +1,4 @@
 import 'package:fhe_template/core.dart';
-import 'package:fhe_template/module/ui_grocery/main_screen_grocery/widget/cart_product_grocery.dart';
-import 'package:fhe_template/module/ui_grocery/main_screen_grocery/widget/cart_product_grocery_favorite.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenGroceryView extends StatefulWidget {
@@ -189,9 +187,20 @@ class MainScreenGroceryView extends StatefulWidget {
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       var item = ItemServices.product[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: CartProductGroceryFavorite(item: item),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailGroceryView(
+                                      item: item,
+                                    )),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: CartProductGroceryFavorite(item: item),
+                        ),
                       );
                     },
                   ),

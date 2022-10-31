@@ -3,25 +3,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../controller/detail_grocery_controller.dart';
 
 class DetailGroceryView extends StatefulWidget {
-  const DetailGroceryView({Key? key}) : super(key: key);
+  Map? item;
+  DetailGroceryView({this.item, Key? key}) : super(key: key);
 
   Widget build(context, DetailGroceryController controller) {
     controller.view = this;
-    var item = {
-      "id": "1",
-      "product_name": "Frash Broccoli Premium Item from Thailand",
-      "photo":
-          "https://freepngimg.com/thumb/broccoli/12-broccoli-png-image-with-transparent-background.png",
-      "category_item": "Fruits",
-      "price": 0.14,
-      "discount": 10,
-      "weight": 200,
-      "description":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "unit": "gr",
-      "qty": 0,
-      "favorite": false
-    };
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +40,7 @@ class DetailGroceryView extends StatefulWidget {
           child: Column(
             children: [
               Text(
-                "${item['product_name']}",
+                "${item!['product_name']}",
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20.0,
@@ -94,18 +80,21 @@ class DetailGroceryView extends StatefulWidget {
               const SizedBox(
                 height: 10.0,
               ),
-              Container(
-                height: 200.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "${item['photo']}",
+              Hero(
+                tag: "${item!['photo']}",
+                child: Container(
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        "${item!['photo']}",
+                      ),
+                      fit: BoxFit.fitHeight,
                     ),
-                    fit: BoxFit.fitHeight,
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(
-                      16.0,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(
+                        16.0,
+                      ),
                     ),
                   ),
                 ),
@@ -128,7 +117,7 @@ class DetailGroceryView extends StatefulWidget {
                     ),
                     child: Center(
                       child: Text(
-                        "${item['weight']}${item['unit']}",
+                        "${item!['weight']}${item!['unit']}",
                         style: const TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold,
@@ -153,7 +142,7 @@ class DetailGroceryView extends StatefulWidget {
                     ),
                     child: Center(
                       child: Text(
-                        "${item['discount']}%",
+                        "${item!['discount']}%",
                         style: const TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold,
@@ -267,7 +256,7 @@ class DetailGroceryView extends StatefulWidget {
                 ),
               ),
               Text(
-                "${item['description']}",
+                "${item!['description']}",
                 style: const TextStyle(
                   fontSize: 18.0,
                   color: Colors.grey,
@@ -299,7 +288,7 @@ class DetailGroceryView extends StatefulWidget {
                     ),
                   ),
                   Text(
-                    "\$${item['price']}",
+                    "\$${item!['price']}",
                     style: const TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,

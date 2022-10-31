@@ -8,8 +8,17 @@ void main() async {
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
   // Widget mainView = const NavigatorView();
-  Widget mainView = const MainScreenGroceryView();
-  // Widget mainView = const DetailGroceryView();
+  // Widget mainView = const FloatMainNavigationView();
+  Widget mainView = const NavigatorGroceryView();
+  // Widget mainView = Container(
+  //   height: 100.0,
+  //   decoration: const BoxDecoration(
+  //     image: DecorationImage(
+  //       image: AssetImage('assets/image/background.png'),
+  //       fit: BoxFit.fill,
+  //     ),
+  //   ),
+  // );
 
   runApp(
     MaterialApp(

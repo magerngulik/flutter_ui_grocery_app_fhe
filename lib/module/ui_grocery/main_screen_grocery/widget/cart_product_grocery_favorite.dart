@@ -35,19 +35,22 @@ class _CartProductGroceryFavoriteState
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Container(
-                  height: 80.0,
-                  width: 130.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        "${widget.item!['photo']}",
+                child: Hero(
+                  tag: "${widget.item!['photo']}",
+                  child: Container(
+                    height: 80.0,
+                    width: 130.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          "${widget.item!['photo']}",
+                        ),
+                        fit: BoxFit.fitHeight,
                       ),
-                      fit: BoxFit.fitHeight,
-                    ),
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(
-                        32.0,
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(
+                          32.0,
+                        ),
                       ),
                     ),
                   ),

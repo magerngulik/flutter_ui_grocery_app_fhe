@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fhe_template/state_util.dart';
 import '../view/navigator_grocery_view.dart';
 
-class NavigatorGroceryController extends State<NavigatorGroceryView> implements MvcController {
+class NavigatorGroceryController extends State<NavigatorGroceryView>
+    implements MvcController {
   static late NavigatorGroceryController instance;
   late NavigatorGroceryView view;
+  int selectedIndex = 0;
 
   @override
   void initState() {
