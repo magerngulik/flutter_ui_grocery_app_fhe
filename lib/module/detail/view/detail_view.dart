@@ -1,4 +1,6 @@
+import 'package:fhe_template/module/home/widget/Xcart_recomendation.dart';
 import 'package:flutter/material.dart';
+import '../../../services/item_services.dart';
 import '../controller/detail_controller.dart';
 
 class DetailView extends StatefulWidget {
@@ -33,7 +35,9 @@ class DetailView extends StatefulWidget {
                 ),
                 child: Center(
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.arrow_back,
                       size: 20.0,
@@ -45,18 +49,21 @@ class DetailView extends StatefulWidget {
               const SizedBox(
                 height: 30.0,
               ),
-              Container(
-                height: 300.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "${item!['photo']}",
+              Hero(
+                tag: "${item!['photo']}",
+                child: Container(
+                  height: 300.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                        "${item!['photo']}",
+                      ),
+                      fit: BoxFit.fitHeight,
                     ),
-                    fit: BoxFit.fitHeight,
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(
-                      16.0,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(
+                        16.0,
+                      ),
                     ),
                   ),
                 ),
@@ -283,7 +290,25 @@ class DetailView extends StatefulWidget {
                   ),
                 ),
               ),
-              const Divider()
+              const Divider(),
+              SizedBox(
+                height: 200.0,
+                child: ListView.builder(
+                  itemCount: ItemServices.product.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    var item = ItemServices.product[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: XcardRecomendation(
+                        onChanged: () {},
+                        discount: null,
+                        item: item,
+                      ),
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),

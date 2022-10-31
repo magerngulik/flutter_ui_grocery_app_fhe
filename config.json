@@ -7,6 +7,12 @@
         "cart",
         "my_order",
         "profile",
-        "detail"
+        "detail",
+        "recomment_screen",
+        "ui_grocery/main_screen_grocery",
+        "ui_grocery/cart_grocery",
+        "ui_grocery/detail_grocery",
+        "ui_grocery/welcome_grocery",
+        "ui_grocery/navigator_grocery"
     ]
 }

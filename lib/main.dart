@@ -1,19 +1,19 @@
-import 'package:fhe_template/module/navigator/view/navigator_view.dart';
-import 'package:fhe_template/setup.dart';
-import 'package:fhe_template/state_util.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fhe_template/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
   await initialize();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
 
-  Widget mainView = const NavigatorView();
-  // if (FirebaseAuth.instance.currentUser != null) {
-  //   mainView = Container();
-  // }
+  // Widget mainView = const NavigatorView();
+  Widget mainView = const MainScreenGroceryView();
+  // Widget mainView = const DetailGroceryView();
 
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       navigatorKey: Get.navigatorKey,
       title: 'Flutter Demo',
       theme: ThemeData(

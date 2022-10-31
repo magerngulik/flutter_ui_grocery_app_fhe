@@ -1,4 +1,5 @@
 import 'package:fhe_template/core.dart';
+import 'package:fhe_template/module/home/widget/Xcart_product.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -182,7 +183,15 @@ class HomeView extends StatefulWidget {
                   );
                 },
               ),
-              SubTitleList(navigatorPush: () {}, title: "Recomment for You"),
+              SubTitleList(
+                  navigatorPush: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RecommentScreenView()),
+                    );
+                  },
+                  title: "Recomment for You"),
               const SizedBox(
                 height: 20.0,
               ),
@@ -200,8 +209,8 @@ class HomeView extends StatefulWidget {
                     var finalPrice = price - discountValue;
                     String data = finalPrice.toString().substring(1, 5);
 
-                    return InkWell(
-                      onTap: () {
+                    return XcardProduct(
+                      onChanged: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -210,129 +219,8 @@ class HomeView extends StatefulWidget {
                                   )),
                         );
                       },
-                      child: Container(
-                        height: 200.0,
-                        width: 150,
-                        margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              10.0,
-                            ),
-                          ),
-                        ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Container(
-                                height: 200.0,
-                                width: 150,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      10.0,
-                                    ),
-                                  ),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 120.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            const BorderRadius.vertical(
-                                          top: Radius.circular(
-                                            10.0,
-                                          ),
-                                        ),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            "${item['photo']}",
-                                          ),
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "${item['price']}",
-                                          style: const TextStyle(
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          data,
-                                          style: const TextStyle(
-                                              fontSize: 17.0,
-                                              decoration:
-                                                  TextDecoration.lineThrough),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    const Text(
-                                      "Fresh Broccoli Premium From Thailand",
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 12.0,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 5.0,
-                                    ),
-                                    const Text(
-                                      "200gr",
-                                      maxLines: 2,
-                                      textAlign: TextAlign.left,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: Container(
-                                height: 30.0,
-                                width: 40.0,
-                                decoration: const BoxDecoration(
-                                  color: Colors.orange,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      5.0,
-                                    ),
-                                  ),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    "${item['discount']}%",
-                                    style: const TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      discount: data,
+                      item: item,
                     );
                   },
                 ),
