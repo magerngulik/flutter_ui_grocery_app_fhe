@@ -20,6 +20,6 @@ M.Zulkarnaen|Zulkarnaen70@gmail.com|[Instagram](https://www.instagram.com/zulkar
 
 ## Screenshot
 ### Screen Waiting dan Screen Select Service
-![alt text](https://raw.githubusercontent.com/magerngulik/clone_restaurant_apps_McDonalds/main/lib/assets/presentation/8.jpg)
+![alt text](https://raw.githubusercontent.com/magerngulik/flutter_ui_grocery_app_fhe/main/assets/presentation/thumnile.jpg)
 
 
