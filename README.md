@@ -1,16 +1,25 @@
-# clone_grocery_app_vegetable
+# Flutter UI Grocery App
 
-A new Flutter project.
+## Tentang Aplikasi
+Ini hanya di peruntukan untuk proses pembelajaran tidak bermaksud untuk memperjual belikan desain yang telah ada, ini merupakan aplikasi untuk pemesanan makanan secara online
 
-## Getting Started
+## Note Pengembagan
+NIat nya bikin sebagus mungkin tapi rasa nya belum mirip, nanti saya coba lagi di content lain wkwkwkw
 
-This project is a starting point for a Flutter application.
+## Inspirasi desain-Chouaib Belagoun at figma community 
+[Figma](https://www.figma.com/community/file/1080444826069711642)
 
-A few resources to get you started if this is your first Flutter project:
+## Snippet/Extension yang di gunakan dalam video ini:
+[FHE](https://marketplace.visualstudio.com/items?itemName=denyocr.flutter-hyper-extension)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Kontributor 
+| Nama | Email    | Social Media  | Sebagai  |
+:---   | :--- | :--- | :--- |
+M.Zulkarnaen|Zulkarnaen70@gmail.com|[Instagram](https://www.instagram.com/zulkarnaimz/) . [Linkedin](http://www.linkedin.com/in/zulkarnaen137) . [GitHub](https://github.com/magerngulik) |Pengembang
+
+## Screenshot
+### Screen Waiting dan Screen Select Service
+![alt text](https://raw.githubusercontent.com/magerngulik/clone_restaurant_apps_McDonalds/main/lib/assets/presentation/8.jpg)
+
+
