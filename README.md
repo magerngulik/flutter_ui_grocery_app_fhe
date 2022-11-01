@@ -19,7 +19,6 @@ NIat nya bikin sebagus mungkin tapi rasa nya belum mirip, nanti saya coba lagi d
 M.Zulkarnaen|Zulkarnaen70@gmail.com|[Instagram](https://www.instagram.com/zulkarnaimz/) . [Linkedin](http://www.linkedin.com/in/zulkarnaen137) . [GitHub](https://github.com/magerngulik) |Pengembang
 
 ## Screenshot
-### Screen Waiting dan Screen Select Service
 ![alt text](https://raw.githubusercontent.com/magerngulik/flutter_ui_grocery_app_fhe/main/assets/presentation/thumnile.jpg)
 
 
